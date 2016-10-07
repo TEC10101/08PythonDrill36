@@ -31,24 +31,28 @@ lengthLTS2 = len(listToSort2)                       # 9
 def tylerSort1(listToSort1,lengthLTS1):
     while lengthLTS1 > 1:
         for i in range(0,lengthLTS1-1):
-            if listToSort1[i] > listToSort1[i+1]:
+            if listToSort1[i] >= listToSort1[i+1]:
                 temp = listToSort1[i]
                 listToSort1[i] = listToSort1[i+1]
                 listToSort1[i+1] = temp
                 if lengthLTS1 == 2:
                     break
+            # elif listToSort1[i] == listToSort1[i+1]:
+            #     lengthLTS1 = lengthLTS1-1
             else:
                 lengthLTS1 = lengthLTS1-1
 
 def tylerSort2(listToSort2,lengthLTS2):
     while lengthLTS2 > 1:
         for i in range(0,lengthLTS2-1):
-            if listToSort2[i] > listToSort2[i+1]:
+            if listToSort2[i] >= listToSort2[i+1]:
                 temp = listToSort2[i]
                 listToSort2[i] = listToSort2[i+1]
                 listToSort2[i+1] = temp
                 if lengthLTS2 == 2:
                     break
+            # elif listToSort2[i] == listToSort2[i+1]:
+            #     lengthLTS2 = lengthLTS2-1
             else:
                 lengthLTS2 = lengthLTS2-1
 
