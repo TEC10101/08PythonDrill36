@@ -5,8 +5,8 @@
 
 # TOC:
 # 1. Drill overview
-# 2. Creating two lists, want to get to one, comma separated
-# 3. functions 1 and 2 for the separate lists
+# 2. Creating two lists to be sorted
+# 3. define function to sort list in ascending order
 # 4. processing the output
 # 5. ///// TEST AREA /////
 
@@ -22,23 +22,21 @@
 #  Once you've designed a program that meets the above qualifications, add it to your GitHub account. Then, send a link to an instructor for viewing.
 
 
-# 2. Creating two lists, want to get to one, comma separated
-listToSort1 = [67, 45, 2, 13, 1, 998]               #
-# lengthLTS1 = len(listToSort1)                       # 6 items
-listToSort2 = [89, 23, 33, 45, 10, 12, 45, 45, 45]  #
-# lengthLTS2 = len(listToSort2)                       # 9 items
+# 2. Creating two lists to be sorted
+listToSort1 = [67, 45, 2, 13, 1, 998]
+listToSort2 = [89, 23, 33, 45, 10, 12, 45, 45, 45]
 
 
-# 3. functions 1 and 2 for the separate lists
-def sortList_Asc(listItem):
-    lengthOfList = len(listItem)
+# 3. define function to sort list in ascending order
+def sortList_Asc(listIndex):
+    lengthOfList = len(listIndex)
 
     for eachPass in range(lengthOfList-1):
         for i in range(0,lengthOfList-1):
-            if listItem[i] >= listItem[i+1]:
-                temp = listItem[i]
-                listItem[i] = listItem[i+1]
-                listItem[i+1] = temp
+            if listIndex[i] >= listIndex[i+1]:
+                temp = listIndex[i]
+                listIndex[i] = listIndex[i+1]
+                listIndex[i+1] = temp
                 if lengthOfList == 2:  #once only a pair left, break so not get stuck in loop
                     break
             else:
