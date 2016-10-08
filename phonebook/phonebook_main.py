@@ -1,18 +1,15 @@
-# Python        3.5.2
-#
-# Author:       Tyler Corum
-#
-# Purpose:      The Tech Academy Python course drill 49 of 64
-#
-# Tested On:    Written and tested to work with Win 7 x64
-#
-#
+# Python 3.5.2
+# Author: Tyler Corum
+# Purpose: The Tech Academy Python course drill 49 of 64
+# Tested On: Written and tested to work with Win 7 x64
+
+
 # _____Table Of Contents_____
 # 1. Drill overview
 # 2. Import
 # 3. Class + Function defs
-# 4. 
-# /!\ # just grab <- unknown syntax/logistical error!
+# 4. Runtime!
+# /!\ # just grab <- unknown logistical error!?
 
 
 # 1. Drill overview
@@ -23,8 +20,8 @@
 from tkinter import *
 import tkinter as tk
 
-import phonebook_gui # this is the name dan used for his gui file
-import phonebook_func # the name dan used for functions in the code
+import phonebook_gui
+import phonebook_func
 
 
 # 3. Class + Function defs
@@ -52,6 +49,8 @@ class parentWindow(Frame):
         # keeping code compartmentalized and clutter free
         phonebook_gui.loadGui(self)
 
+
+# 4. Runtime!
 if __name__ == "__main__":
     root = tk.Tk()
     App = parentWindow(root)
