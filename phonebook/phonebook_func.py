@@ -49,7 +49,7 @@ def create_db(self):
 	conn = sqlite3.connect('phonebook.db')
 	with conn:
 		cur = conn.cursor()
-		conn.execute("""CREATE TABLE if not exists tbl_phonebook 
+		cur.execute("""CREATE TABLE if not exists tbl_phonebook 
 			(ID INTEGER PRIMARY KEY AUTOINCREMENT, 
 			col_fname TEXT,
 			col_lname TEXT,
@@ -97,6 +97,7 @@ def onSelect(self,event):
 			self.txt_phone.insert(0,data[2])
 			self.txt_email.delete(0,END)
 			self.txt_email.insert(0,data[3])
+	conn.close()
 
 def addToList(self):
 	var_fname = self.txt_fname.get()
@@ -123,10 +124,8 @@ def addToList(self):
 			if chkName == 0: # if this is 0 then no exist of fullname and we can add new data
 				print("chkName: {}".format(chkName))
 				cursor.execute("""INSERT INTO tbl_phonebook (col_fname,col_lname,col_fullname,col_phone,col_email) VALUES (?,?,?,?,?)""", (var_fname,var_lname,var_fullname,var_phone,var_email))
-
-				# /!\ ^ line 125 giving problem.  added after """, data
-
 				self.lstList1.insert(END, var_fullname) # update listbox with new fullname
+				conn.commit()
 				onClear(self) #call function to clear all textboxes
 			else:
 				messagebox.showerror("Name Error","'{}' already exists in the dB! Please choose a different name.".format(var_fullname))
@@ -183,7 +182,7 @@ def onRefresh(self):
 	conn = sqlite3.connect('phonebook.db')
 	with conn:
 		cur = conn.cursor()
-		cur.execute("""SELECT ID, col_fullname FROM tbl_phonebook""")  # /!\ I had to add the ID because otherwise it wasn't counting??! int <> string
+		cur.execute("""SELECT COUNT(*) FROM tbl_phonebook""")  # /!\ removed. I had to add the ID because otherwise it wasn't counting??! int <> string
 		count = cur.fetchone()[0]
 		i = 0
 		while i < count:
