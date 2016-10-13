@@ -54,9 +54,11 @@ def time_now_lon(timeNowLondonSec):
 	remainingMinutesLon = math.floor((timeNowLondonSec % 3600) / 60)
 	londonAMPM = "AM"
 
-	if timeNowLonHoursPastMidnight > 12:
+	if timeNowLonHoursPastMidnight > 12 and timeNowLonHoursPastMidnight < 24:
 		timeNowLonHoursPastMidnight = timeNowLonHoursPastMidnight - 12
 		londonAMPM = "PM"
+	elif timeNowLonHoursPastMidnight >= 24:
+		timeNowLonHoursPastMidnight = timeNowLonHoursPastMidnight - 12
 
 	if timeNowLondonSec > 75600 or timeNowLondonSec < 32400:
 		print('London Branch Closed.  Time there is: {:2d}:{:02d}{}'.format(timeNowLonHoursPastMidnight,remainingMinutesLon,londonAMPM))
@@ -69,9 +71,11 @@ def time_now_nyc(timeNowNYCSec):
 	remainingMinutesNYC = math.floor((timeNowNYCSec % 3600) / 60)
 	NYCAMPM = "AM"
 
-	if timeNowNYCHoursPastMidnight > 12:
+	if timeNowNYCHoursPastMidnight > 12 and timeNowNYCHoursPastMidnight < 24:
 		timeNowNYCHoursPastMidnight = timeNowNYCHoursPastMidnight - 12
 		NYCAMPM = "PM"
+	elif timeNowNYCHoursPastMidnight >= 24:
+		timeNowNYCHoursPastMidnight = timeNowNYCHoursPastMidnight - 12
 
 	if timeNowNYCSec > 75600 or timeNowNYCSec < 32400:
 		print('NYC Branch Closed.  Time there is: {:2d}:{:02d}{}'.format(timeNowNYCHoursPastMidnight, remainingMinutesNYC,NYCAMPM))
