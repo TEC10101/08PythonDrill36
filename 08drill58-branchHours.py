@@ -26,6 +26,8 @@
 # the other in London. They need a very simple program to find out if the branches are open or
 # closed based on the current time of the Headquarters here in Portland. The hours of both
 # branches are 9:00AM - 9:00PM in their own time zone.
+# 
+# This assumes daylight savings time is active, and that in my world it is now permanent :)
 
 
 # 2. Import and Functions
