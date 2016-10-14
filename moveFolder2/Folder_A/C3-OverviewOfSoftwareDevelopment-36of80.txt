@@ -1,0 +1,15 @@
+ROUNDED (run even.exe)
+->
+SQUARED (ECHO "Welcome to Even, please enter your number: _")
+->
+RHOMBOID (Line 05; wait for keyboardInput)
+->
+SQUARED (create variable "toBeProcessed0" = keyboardInput)
+->
+SQUARED (loop while toBeProcessed0 > 0; subtract 1 from toBeProcessed0; alternate adding 1 to toBeProcessed1 and toBeProcessed2)
+->
+SQUARED (compare toBeProcessed1 and toBeProcessed2, equal?)
+->
+DIAMOND (choice: YES or NO)
+-> YES -> RHOMBOID (ECHO "This number is Even.  You win!  Goodbye!") -> ROUNDED (quit even.exe)
+-> NO -> RHOMBOID (ECHO "This number is Odd.  Please enter another number: _") -> to Line 05 RHOMBOID (wait for keyboard input))
