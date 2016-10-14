@@ -33,18 +33,22 @@
 import time
 import datetime
 import math
+import pdb
 
 def time_now():
+	# pdb.set_trace()
 	unix = math.ceil(time.time())
 	date = str(datetime.datetime.fromtimestamp(unix).strftime('%Y-%m-%d %H:%M:%S'))
 
 	print('unix time: {}\nconverted time: {}'.format(unix, date))
 
-	daySplit = (unix % 86400) # the remainder is how many seconds after 00:00, the start of the day
-	timeNowLondonSec = daySplit + 3600 # london is -1 GMT right now
-	timeNowNYCSec = daySplit - (3600 * 4)
-	timeNowPDXSec = daySplit - (3600 * 7)
-	timeLeftEOD = (86400 - daySplit)
+	timeNowLondonSec = (unix + 3600) % 86400 # london is -1 GMT right now
+	timeNowNYCSec = (unix - (3600 * 4)) % 86400
+	timeNowPDXSec = (unix - (3600 * 7)) % 86400
+	if timeNowNYCSec == 0:
+		timeNowNYCSec = 86400
+	if timeNowLondonSec == 0:
+		timeNowLondonSec = 86400
 	time_now_lon(timeNowLondonSec)
 	time_now_nyc(timeNowNYCSec)
 	return
@@ -67,6 +71,7 @@ def time_now_lon(timeNowLondonSec):
 	return
 
 def time_now_nyc(timeNowNYCSec):
+	# pdb.set_trace()
 	timeNowNYCHoursPastMidnight = math.floor(timeNowNYCSec / 3600)
 	remainingMinutesNYC = math.floor((timeNowNYCSec % 3600) / 60)
 	NYCAMPM = "AM"
@@ -88,16 +93,22 @@ def debug_time():
 	date = str(datetime.datetime.fromtimestamp(unix).strftime('%Y-%m-%d %H:%M:%S'))
 
 	print('\n\n********DEBUGGGGGGGGGG**********\nunix time: {}\nconverted time: {}'.format(unix, date))
+	for i in range(0,25):
+		debugInput = i
+		daySplit = (3600 * debugInput) # the remainder is how many seconds after 00:00, the start of the day
+		timeNowLondonSec = (daySplit + 3600) % 86400 # london is -1 GMT right now
+		timeNowNYCSec = (daySplit - (3600 * 4)) % 86400
+		timeNowPDXSec = (daySplit - (3600 * 7)) % 86400
+		if timeNowNYCSec == 0:
+			timeNowNYCSec = 86400
+		if timeNowLondonSec == 0:
+			timeNowLondonSec = 86400
+		time_now_lon(timeNowLondonSec)
+		time_now_nyc(timeNowNYCSec)
+	
 
-	debugInput = int(input('What time do you want to test that it is in UTC.  List how many hours into the day like 5 = 5AM, 15 = 3PM: '))
-
-	daySplit = (3600 * debugInput) # the remainder is how many seconds after 00:00, the start of the day
-	timeNowLondonSec = daySplit + 3600 # london is -1 GMT right now
-	timeNowNYCSec = daySplit - (3600 * 4)
-	timeNowPDXSec = daySplit - (3600 * 7)
-	timeLeftEOD = (86400 - daySplit)
-	time_now_lon(timeNowLondonSec)
-	time_now_nyc(timeNowNYCSec)
+	# time_now_lon(timeNowLondonSec)
+	# time_now_nyc(timeNowNYCSec)
 
 
 # 3. Commented out notes 
