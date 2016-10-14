@@ -35,5 +35,8 @@ destination = 'C:\\Projects\\Python\\pythonDrills\\moveFolder\\Folder_B\\'
 files = os.listdir(source)
 
 for file in files:
-	print('{}\tmoved to {}\{}'.format(file,destination,file))
-	shutil.move(source + file, destination)
+	if file.endswith('.txt'):
+		print('{}\tmoved to {}{}'.format(file,destination,file))
+		shutil.move(source + file, destination)
+	else:
+		print('{}\tnot moved'.format(file))
