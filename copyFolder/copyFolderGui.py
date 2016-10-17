@@ -81,7 +81,7 @@ class Gui:
 		self.chosenFromDir.grid(row=3,column=1,columnspan=2,padx=(27,0),pady=(10,0),sticky=W)
 		self.chosenToDir = tk.Label(self.master,textvariable=self.destination)
 		self.chosenToDir.grid(row=6,column=1,columnspan=2,padx=(27,0),pady=(10,0),sticky=W)
-		pdb.set_trace()
+		#pdb.set_trace()
 
 		# transfer/launch button
 		self.launchButton = ttk.Button(self.master,text='>> Transfer Now >>', command=lambda: transfer_last_24(self.source.get(),self.destination.get()))
@@ -106,7 +106,7 @@ def transfer_last_24(source, destination):
 		strLength = len(file)
 		
 		fileNameDisplay = file
-		if strLength > 12:
+		if strLength > 14:
 			# truncate = (len(file)-14)
 			fileNameDisplay = file[-12:]
 		if file.endswith('.txt'):
