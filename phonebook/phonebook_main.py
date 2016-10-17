@@ -54,4 +54,5 @@ class parentWindow(Frame):
 if __name__ == "__main__":
     root = tk.Tk()
     App = parentWindow(root)
+    App2 = parentWindow(root)
     root.mainloop()  # <-- this keeps the window persistent on the screen!

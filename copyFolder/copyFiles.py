@@ -28,8 +28,9 @@ import datetime
 from tkinter import *
 from tkinter import ttk
 import pdb
+import copyFolderGui
 
-def last_24(unixUTC, source, destination):
+def transfer_last_24(self.master self.source, self.destination):
 	files = os.listdir(source)
 	
 	for file in files:
@@ -63,7 +64,7 @@ unixUTC = math.ceil(time.time())
 source = 'C:\\Projects\\Python\\pythonDrills\\moveFolder2\\Folder_A\\'
 destination = 'C:\\Projects\\Python\\pythonDrills\\moveFolder2\\destination\\'
 
-last_24(unixUTC, source, destination)
+transfer_last_24(self.master, self.source, self.destination)
 
 
 
