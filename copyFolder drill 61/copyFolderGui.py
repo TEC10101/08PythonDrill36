@@ -36,12 +36,17 @@ import time
 import math
 import datetime
 import pdb
+import sqlite3
+
 
 
 
 # 3. Processing
 # -------------
+style.use('fivethirtyeight')
 
+conn = sqlite3.connect('tutorial.db')
+c = conn.cursor()
 
 
 class Gui:
